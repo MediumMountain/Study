@@ -15,5 +15,5 @@ WSL1ではWindows標準のファイルシステムであるNTFSを使うこと�
 
 
 # REFERENCE
-[WindowsでWSL2を使って「完全なLinux」環境を作ろう！](https://www.kagoya.jp/howto/it-glossary/develop/wsl2_linux/)
+[WindowsでWSL2を使って「完全なLinux」環境を作ろう！](https://www.kagoya.jp/howto/it-glossary/develop/wsl2_linux/)  
 [WSL2とDockerとVisual Studio Codeでつくる開発環境](https://zenn.dev/canard0328/articles/wsl2-docker-vscode)
