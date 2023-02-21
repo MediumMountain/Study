@@ -1427,9 +1427,10 @@ CutoutとMixupを混合させた手法
 複数変換をかけた画像を最後に混ぜ合わせる手法
 
 ## MobileNet
-MobileNetは小型・低レイテンシー・低消費電力のモデル
-ハイパーパラメータとしてwidth multiplier
-とresolution multiplier を用いている
+Googleによって発表された。
+畳み込みの計算を分割することで計算量の減少を達成した。
+MobileNetは小型・低レイテンシー・低消費電力のモデル。
+ハイパーパラメータとしてwidth multiplierとresolution multiplier を用いている。
 
 ## Depthwise Separable Convolution
 通常のConvolutionをDepthwise Conv.と
