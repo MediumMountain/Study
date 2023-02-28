@@ -9,3 +9,7 @@ https://qiita.com/RZQiita/items/4a4fec1c91cf95fd64a2
 
 - 【2022年3月受験版】G検定チートシート
 https://qiita.com/juri_engineer/items/a42f28e57a1d6809e43e
+
+
+学習ブログ
+https://zero2one.jp/learningblog/
