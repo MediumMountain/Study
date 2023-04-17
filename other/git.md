@@ -90,14 +90,22 @@ Newを押下
 ## trable shouting
 
 - プッシュ時のエラー  
+1.
     ```
-    Git: remote: Permission to ~/~~.git denied to ~~ 
+    Git: remote: Permission to ~/AA.git denied to AAA 
     ```
 
     - プッシュ先のリポジトリに対する権限がない、違っている  
     資格マネージャーからgit のアカウントを編集する
 
         ![](https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F245438%2Ff9cd18db-75d2-b1d3-cc61-74ce6421818a.png?ixlib=rb-4.0.0&auto=format&gif-q=60&q=75&w=1400&fit=max&s=fb619ea2e1faaf9eda4e31240a1ab78e)
+
+  1.
+    ```
+    Git: remote: Permission to ~/~~.git denied to XXXX 
+    ```
+
+- XXXXの部分がremoteに設定しているものと違う。
 
 
 - リモートのリポジトリを削除する
