@@ -144,6 +144,11 @@ IGNBRK Ignore BREAK condition on input.
               stops every eight columns).  [requires _BSD_SOURCE or
               _SVID_SOURCE or _XOPEN_SOURCE]
 
+                水平タブ遅延マスク。 値は TAB0、TAB1、TAB2、TAB3 (または XTABS、ただしバグのセクションを参照) です。  
+                TAB3 の値、つまり XTABS は、タブをスペースに展開します (8 列ごとにタブストップが付きます)。  
+                [_BSD_SOURCE または _SVID_SOURCE または _XOPEN_SOURCE が必要]  
+
+
        BSDLY  Backspace delay mask.  Values are BS0 or BS1.  (Has never
               been implemented.)  [requires _BSD_SOURCE or _SVID_SOURCE
               or _XOPEN_SOURCE]
@@ -169,17 +174,22 @@ IGNBRK Ignore BREAK condition on input.
               systems use separate fields, for example, sg_ispeed and
               sg_ospeed.)
 
-       CSIZE  Character size mask.  Values are CS5, CS6, CS7, or CS8.
+       CSIZE  Character size mask.  Values are CS5, CS6, CS7, or CS8.  
+                文字サイズマスク。 値は CS5、CS6、CS7、または CS8 です。
 
-       CSTOPB Set two stop bits, rather than one.
+       CSTOPB Set two stop bits, rather than one.  
+                1 つではなく 2 つのストップ ビットを設定します。  
 
-       CREAD  Enable receiver.
 
-       PARENB Enable parity generation on output and parity checking for
-              input.
+       CREAD  Enable receiver.  
+                受信機を有効にします。  
 
-       PARODD If set, then parity for input and output is odd; otherwise
-              even parity is used.
+       PARENB Enable parity generation on output and parity checking for input.  
+                出力のパリティ生成と入力のパリティ チェックを有効にします。
+
+       PARODD If set, then parity for input and output is odd; otherwise even parity is used.  
+                設定されている場合、入力と出力のパリティは奇数になります。 それ以外の場合は偶数パリティが使用されます。  
+
 
        HUPCL  Lower modem control lines after last process closes the
               device (hang up).
@@ -202,42 +212,58 @@ IGNBRK Ignore BREAK condition on input.
               is always 0.  [requires _BSD_SOURCE or _SVID_SOURCE]
 
        CRTSCTS
-              (not in POSIX) Enable RTS/CTS (hardware) flow control.
-              [requires _BSD_SOURCE or _SVID_SOURCE]
+              (not in POSIX) Enable RTS/CTS (hardware) flow control.  
+              [requires _BSD_SOURCE or _SVID_SOURCE]  
+
+              (POSIX には含まれません) RTS/CTS (ハードウェア) フロー制御を有効にします。  
+               [_BSD_SOURCE または _SVID_SOURCE が必要です]  
+
+
 
        c_lflag flag constants:
+                フラグ定数:
 
-       ISIG   When any of the characters INTR, QUIT, SUSP, or DSUSP are
-              received, generate the corresponding signal.
+
+       ISIG   When any of the characters INTR, QUIT, SUSP, or DSUSP are received, generate the corresponding signal.  
+                INTR、QUIT、SUSP、DSUSP のいずれかの文字を受信すると、対応する信号を生成します。  
+
 
        ICANON Enable canonical mode (described below).
+                正規モードを有効にします (後述)。
 
-       XCASE  (not in POSIX; not supported under Linux) If ICANON is
-              also set, terminal is uppercase only.  Input is converted
-              to lowercase, except for characters preceded by \.  On
-              output, uppercase characters are preceded by \ and
-              lowercase characters are converted to uppercase.
+       XCASE  (not in POSIX; not supported under Linux) 
+              If ICANON is also set, terminal is uppercase only.  
+              Input is converted to lowercase, except for characters preceded by \.  
+              On output, uppercase characters are preceded by \ and lowercase characters are converted to uppercase.
               [requires _BSD_SOURCE or _SVID_SOURCE or _XOPEN_SOURCE]
 
-       ECHO   Echo input characters.
+              (POSIX ではサポートされていません。Linux ではサポートされていません)  
+               ICANON も設定されている場合、端子は大文字のみです。  
+               入力は、\ で始まる文字を除き、小文字に変換されます。  
+               出力では、大文字の前に \ が付けられ、小文字は大文字に変換されます。  
+               [_BSD_SOURCE または _SVID_SOURCE または _XOPEN_SOURCE が必要です]  
 
-       ECHOE  If ICANON is also set, the ERASE character erases the
-              preceding input character, and WERASE erases the preceding
-              word.
+       ECHO   Echo input characters.  
+                入力文字をエコーします。  
 
-       ECHOK  If ICANON is also set, the KILL character erases the
-              current line.
+       ECHOE  If ICANON is also set, the ERASE character erases the preceding input character, and WERASE erases the preceding word.
+                ICANON も設定されている場合、ERASE 文字は前の入力文字を消去し、WERASE は前の単語を消去します。
 
-       ECHONL If ICANON is also set, echo the NL character even if ECHO
-              is not set.
+       ECHOK  If ICANON is also set, the KILL character erases the current line.  
+                ICANON も設定されている場合、KILL 文字は現在の行を消去します。  
+
+       ECHONL If ICANON is also set, echo the NL character even if ECHO is not set.  
+                ICANON も設定されている場合は、ECHO が設定されていない場合でも NL 文字をエコーします。  
 
        ECHOCTL
-              (not in POSIX) If ECHO is also set, terminal special
-              characters other than TAB, NL, START, and STOP are echoed
-              as ^X, where X is the character with ASCII code 0x40
-              greater than the special character.  For example,
-              character 0x08 (BS) is echoed as ^H.  [requires
-              _BSD_SOURCE or _SVID_SOURCE]
+              (not in POSIX) 
+              If ECHO is also set, terminal special characters other than TAB, NL, START, and STOP are echoed as ^X, where X is the character with ASCII code 0x40 greater than the special character.  
+              For example, character 0x08 (BS) is echoed as ^H.  
+              [requires_BSD_SOURCE or _SVID_SOURCE]
+
+                ECHO も設定されている場合、TAB、NL、START、および STOP 以外の端末特殊文字は ^X としてエコーされます。ここで、X は特殊文字より大きい ASCII コード 0x40 の文字です。
+               たとえば、文字 0x08 (BS) は ^H としてエコーされます。
+               [_BSD_SOURCE または _SVID_SOURCE が必要]
 
        ECHOPRT
               (not in POSIX) If ICANON and ECHO are also set, characters
