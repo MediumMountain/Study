@@ -46,9 +46,36 @@ struct termios {
 
 ```
 
+- 入力フラグ
+
+    - 端末(この場合armadillo)への入力に関する設定である．
+    - 特に文字入力の仕方(入力の8ビット目を落とす，パリティ検査を行うなど)を制御する．
+
+- 出力フラグ
+
+    - 端末(この場合armadillo)からの出力に関する設定である．
+    - 特に出力処理の実行の仕方(改行をCR/LFに変更するなど)を制御する．
 
 
-IGNBRK Ignore BREAK condition on input.
+- 制御フラグ
+
+    - 端末(この場合armadillo)のハードウェアに関する設定である．
+    - RS-232のシリアルライン(モデムの状態信号の無視，文字ごとのストップビット数など)に影響する．
+
+- ローカルフラグ
+
+    - 端末(この場合armadillo)のその他の設定である．
+    - ドライバとユーザのインターフェース(エコーのオン/オフ，削除した文字の表示方法，端末生成シグナルの有無，バックグラウンドからの出力を止めるジョブ制御シグナルなど)に影響する．
+
+
+### The termios structure
+
+- ここで説明する関数の多くには termios_p 引数があります
+- これは termios 構造体へのポインタです。 
+- この構造少なくとも次のメンバーが含まれます。
+
+
+       IGNBRK Ignore BREAK condition on input.
 
        BRKINT If IGNBRK is set, a BREAK is ignored.  If it is not set
               but BRKINT is set, then a BREAK causes the input and
