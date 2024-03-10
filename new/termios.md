@@ -704,3 +704,14 @@ RETURN VALUE         top
        making multiple changes it may be necessary to follow this call
        with a further call to tcgetattr() to check that all changes have
        been performed successfully.
+
+
+
+
+## REFERENCE
+
+Linux manual page  
+https://man7.org/linux/man-pages/man3/termios.3.html  
+
+Linux のシリアル通信において termios 構造体で設定可能なパラメータをまとめる (C/C++)  
+https://ssr-yuki.hatenablog.com/entry/2019/02/17/024943

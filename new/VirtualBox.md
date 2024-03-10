@@ -6,6 +6,8 @@
 ## 
 
 ## VirtualBoxでのUSBデバイス認識
+- /dev/ttyUSB0 が認識されない場合の対策
+
 
 ### Extension Packをいれとけ！
 https://www.virtualbox.org/wiki/Downloads
