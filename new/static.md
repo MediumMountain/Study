@@ -1,15 +1,12 @@
 # static
 
 ## ① static
-staticはC言語時代からある修飾子ですね。staticがつけられた変数は静的領域に確保されます。(色々、奥が深い修飾子なのですが、今回はstaticの基礎の説明は省略します。)
-
-
-このstatic修飾子はクラスのメンバ変数やメンバ関数に対して用いると非常に面白い挙動します。
-
+- staticはC言語時代からある修飾子
+- staticがつけられた変数は静的領域に確保されます。
 
 ## static 修飾子とは
-「static」は静的という意味で「dynamic（動的）」の対義語である。
-下記の様に変数宣言または関数宣言時に「static」を付加することで、付加された変数または関数が静的であることを宣言する。
+- 「static」は静的という意味で「dynamic（動的）」の対義語である。
+- 下記の様に変数宣言または関数宣言時に「static」を付加することで、付加された変数または関数が静的であることを宣言する。
 
 ```
     static int var;
@@ -17,8 +14,10 @@ staticはC言語時代からある修飾子ですね。staticがつけられた�
 ```
 
 ## staticメンバ変数
-次のコードを見てください。次のPeapleクラスはstaticメンバ変数numを持ちます。また、コンストラクタが呼ばれた時にnumを+1し、デストラクタが呼ばれた時、numを-1しています。
+次のPeapleクラスはstaticメンバ変数numを持ちます。  
+また、コンストラクタが呼ばれた時にnumを+1し、デストラクタが呼ばれた時、numを-1しています。  
 
+```
 myClass.hpp
 #include <stdio.h>
 #include <iostream>
@@ -37,13 +36,17 @@ public:
     void ret_Peaple_num(void);
 };
 
+```
 メンバ関数の実装は次の通り。メンバ関数のret_Peaple_numはstaticメンバ変数 numの値を返すプログラムになっています。
 
+```
 myClass.cpp
 int Peaple::num = 0; //Undefined symbols for architecture x86_64:
 void Peaple::ret_Peaple_num(void){
     cout << num <<endl;
 }
+```
+
 ここで、クラスを定義したhppファイルと対応するcppファイルにおいて、
 
 int Peaple::num = 0;
@@ -51,6 +54,7 @@ int Peaple::num = 0;
 
 さて、前置きが長くなりましたが、staticメンバ変数の一番面白いところは、Peapleクラスの全てのインスタンスでその値を共有できるところです。 ??? 意味が分からないと思うので、実動作を見ながら説明していきます。
 
+```
 main.cpp
 #include <iostream>
 #include "myClass.hpp"
@@ -70,6 +74,7 @@ int main(int argc, const char * argv[]) {
 
     return 0;
 }
+```
 このmain関数を実行すると、
 
 3
@@ -179,3 +184,7 @@ https://qiita.com/omuRice/items/3c40e8dde19e276ccacf
 
 
 http://vivi.dyndns.org/tech/cpp/static.html
+
+
+基底クラスのstaticメンバ変数を継承先のクラスで書き換えると、別クラスのインスタンスにも影響する
+https://qiita.com/y-ken/items/fea3b95ffa005c0ce3cd
